@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="UTF-8">
@@ -27,6 +27,12 @@
   <link rel="apple-touch-icon"
     href="https://cctb-assets.s3-ca-central-1.amazonaws.com/dist/images/apple-touch-icon-585e5d997d.png">
 
+    <!--Firebase JS links-->
+    <script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script> 
+    <script src="./js/firebase.js"></script>
+    <script src="./js/main.js"></script>
+
+
 </head>
 
 <body>
@@ -46,7 +52,7 @@
 
               <!-- email address -->
               <div class="form-floating mb-3">
-                <input required type="email" class="form-control" id="account_email" placeholder="Email address">
+                <input type="email" class="form-control" id="account_email" placeholder="Email address" required>
                 <label for="account_email">Email address</label>
               </div>
 
@@ -62,9 +68,14 @@
                 </a>
               </div>
 
+              <div class="form-floating mb-3">
+                <input type="phone" class="form-control" id="PhoneN" placeholder="Optional">
+                <label for="phone">Phone Number (Optional)</label>
+              </div>
+
               <!-- submit button -->
               <div class="d-grid mb-3">
-                <button type="submit" class="btn btn-primary">
+                <button type="button" class="btn btn-primary" id="SIbtn">
                   <span>Sign in</span>
                   <svg class="rtl-flip" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor">
@@ -93,7 +104,7 @@
             </div>
 
             <div class="w-100 d-inline-grid gap-auto-3">
-              <a title="Gmail Login" href="#!" class="btn bg-googleplay border w-100 mx-0 text-gray-700">
+              <a title="Gmail Login" href="#!" class="btn bg-googleplay border w-100 mx-0 text-gray-700" id="Gbtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                   class="bi bi-google text-white" viewBox="0 0 16 16">
                   <path
@@ -103,7 +114,7 @@
 
 
 
-              <a title="Cellphone login" href="#!" class="btn bg-black border w-100 mx-0 text-white">
+              <a title="Cellphone login" href="#!" class="btn bg-black border w-100 mx-0 text-white" id="PHbtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                   class="bi bi-telephone-outbound-fill" viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
@@ -116,7 +127,17 @@
 
           </div>
         </div>
+        
+        <div class="row w-50 mx-auto mt-3"><input id="PHcode" placeholder="YOUR TXT CODE HERE" maxlength="6" style="text-align: center;"></div>
+        <div id="CaptchaBOX" style="margin-left: 125px;margin-top: 10px;"></div>
+          <div class="d-grid mb-3 mt-3">
+            <button type="button" class="btn btn-secondary w-50 m-auto" id="PHloggin">
+              <span>Sign in Phone</span>
 
+
+        </button></div>
+        
+      
       </div>
     </div>
     <div class="d-none d-lg-block min-vh-100 col-lg-6 bg-cover py-8 overlay-dark overlay-opacity-25"
@@ -125,8 +146,10 @@
         fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon points="50,0 100,0 50,100 0,100"></polygon>
       </svg>
+     
     </div>
-  </div>
+   
+    </div>
 
 </body>
 
